@@ -14,7 +14,7 @@ func main() {
 	opt := &registry.Option{
 		Certfile:        "/mnt/certs/RootCA.crt",
 		Keyfile:         "/mnt/certs/RootCA.key",
-		TokenExpiration: time.Now().Add(24 * time.Hour).Unix(),
+		TokenExpiration: (24 * time.Hour).Milliseconds() / 1000,
 		TokenIssuer:     "Authz",
 		Authenticator:   &httpAuthenticator{},
 	}

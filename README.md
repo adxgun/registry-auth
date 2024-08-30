@@ -54,7 +54,7 @@ func main() {
     opt := &registry.Option{
         Certfile:        crt,
         Keyfile:         key,
-        TokenExpiration: time.Now().Add(24 * time.Hour).Unix(), // 24hrs
+        TokenExpiration: (24 * time.Hour).Milliseconds() / 1000, // 24hrs
         TokenIssuer:     "Authz",
         Authenticator:   &exampleAuthenticator{}, // could be nil, meaning all users would be authenticated by default
     }
